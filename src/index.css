@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 200 80% 50%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 18%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.5rem;
+
+    /* Schedule status colors */
+    --status-subida: 210 80% 55%;
+    --status-induccion: 38 85% 55%;
+    --status-perforacion: 142 70% 45%;
+    --status-bajada: 0 72% 55%;
+    --status-descanso: 220 10% 35%;
+    --status-empty: 220 15% 18%;
+
+    /* Validation states */
+    --valid: 142 70% 45%;
+    --warning: 38 92% 50%;
+    --error: 0 72% 51%;
+
+    --sidebar-background: 220 18% 12%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .status-cell {
+    @apply w-10 h-10 flex items-center justify-center text-xs font-mono font-semibold rounded transition-all duration-200;
+  }
+
+  .status-S {
+    background-color: hsl(var(--status-subida));
+    color: white;
+  }
+
+  .status-I {
+    background-color: hsl(var(--status-induccion));
+    color: hsl(220 20% 10%);
+  }
+
+  .status-P {
+    background-color: hsl(var(--status-perforacion));
+    color: white;
+  }
+
+  .status-B {
+    background-color: hsl(var(--status-bajada));
+    color: white;
+  }
+
+  .status-D {
+    background-color: hsl(var(--status-descanso));
+    color: hsl(210 20% 70%);
+  }
+
+  .status-empty {
+    background-color: hsl(var(--status-empty));
+    color: hsl(215 15% 40%);
+  }
+
+  .count-valid {
+    background-color: hsl(var(--valid) / 0.2);
+    color: hsl(var(--valid));
+    border: 1px solid hsl(var(--valid) / 0.4);
+  }
+
+  .count-warning {
+    background-color: hsl(var(--warning) / 0.2);
+    color: hsl(var(--warning));
+    border: 1px solid hsl(var(--warning) / 0.4);
+  }
+
+  .count-error {
+    background-color: hsl(var(--error) / 0.2);
+    color: hsl(var(--error));
+    border: 1px solid hsl(var(--error) / 0.4);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg;
+  }
+
+  .input-industrial {
+    @apply bg-input border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20;
+  }
+}
